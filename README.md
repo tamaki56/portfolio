@@ -23,7 +23,10 @@
 
 ## 設計書
 
-<...>
+<https://docs.google.com/spreadsheets/d/1dwhN5QTdyrBzY5wJnPQMALPMZQHezCBQmEC5O4xcUks/edit?usp=sharing>
+<https://docs.google.com/spreadsheets/d/17P8eXD0rh-jQzsEoKblWfYp-I6ayk9Qjx6a5gr43ESI/edit?usp=sharing>
+https://drive.google.com/file/d/1AFEmRar7S8gAp9p_kZc24U4cWqqbG7Qw/view?usp=sharing>
+<https://drive.google.com/file/d/1768j946HbMRwZ3WiIwMqLrux6Xmc1sWj/view?usp=sharing>
 
 ## チャレンジ要素一覧
 
@@ -37,4 +40,7 @@
 - JS ライブラリ：jQuery
 - IDE：Cloud9
 
-
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- 
