@@ -1,0 +1,2 @@
+class Mikan < ApplicationRecord
+end
