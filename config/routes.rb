@@ -1,39 +1,34 @@
 Rails.application.routes.draw do
+  # 顧客用
+# URL /customers/sign_in ...
+devise_for :users, controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
+# 管理者用
+# URL /admin/sign_in ...
+devise_for :admin, controllers: {
+  sessions: "admin/sessions"
+}
+
+#会員
+  scope module: :public do
+    root to: 'mikans#index'
+    resources :mikans, only: [:show]
+    get 'user/my_page' => 'users#show'
+    resources :users, only: [:edit, :update]
+    resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]do
+      resource :favorites, only: [:create, :destroy]
+    end
+ end
+ 
+  #管理者
   namespace :admin do
-    get 'recipes/edit'
-    get 'recipes/index'
-    get 'recipes/show'
-  end
-  namespace :admin do
-    get 'tags/edit'
-    get 'tags/index'
-  end
-  namespace :admin do
-    get 'mikans/show'
-    get 'mikans/edit'
-    get 'mikans/index'
-    get 'mikans/new'
-  end
-  namespace :admin do
-    get 'users/show'
-    get 'users/edit'
-    get 'users/index'
-  end
-  namespace :public do
-    get 'recipes/show'
-    get 'recipes/edit'
-    get 'recipes/index'
-    get 'recipes/new'
-  end
-  namespace :public do
-    get 'users/show'
-    get 'users/edit'
-  end
-  namespace :public do
-    get 'mikans/index'
-    get 'mikans/show'
-  end
-  devise_for :admins
-  devise_for :users
+    resources :mikans
+    resources :customers, only: [:show,:index,:edit,:update]
+    resources :tags, only: [:index,:edit,:create,:update, :destroy]
+    resources :users, only: [:index,:show,:edit,:update, :destroy]
+    resources :recipes, only: [:index, :show, :edit, :update, :destroy]
+  end 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
