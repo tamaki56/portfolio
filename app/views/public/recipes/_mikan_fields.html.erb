@@ -1,0 +1,19 @@
+<div class="nested-fields">
+  <table>
+    <tr>
+      <td class="td-fixed-direction">
+        
+        <%= f.text_field :mikan_name ,placeholder: "どのみかんを?" %>
+      </td>
+      <td class="td-fixed-step_image">
+        <%= f.text_field :amount, placeholder: "2つ"  %>
+      </td>
+      <td class="td-fixed-delete">
+
+        <!-- 削除ボタン -->
+        <%= link_to_remove_association "削除", f %>
+
+      </td>
+    </tr>
+  </table>
+</div>

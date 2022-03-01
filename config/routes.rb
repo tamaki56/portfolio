@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+#会員
+  scope module: :public do
+    root to: 'mikans#index'
+    resources :mikans, only: [:show]
+    get 'user/:id/my_page' => 'users#show', as: 'my_page'
+    resources :users, only: [:edit, :update]do
+       get :favorites, on: :collection
+    end
+    resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]do
+      resource :favorites, only: [:create, :destroy]
+    end
+ end
   # 顧客用
 # URL /customers/sign_in ...
 devise_for :users, controllers: {
@@ -11,18 +23,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
-#会員
-  scope module: :public do
-    root to: 'mikans#index'
-    resources :mikans, only: [:show]
-    get 'user/:id/my_page' => 'users#show', as: 'user'
-    resources :users, only: [:edit, :update]do
-       get :favorites, on: :collection
-    end
-    resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]do
-      resource :favorites, only: [:create, :destroy]
-    end
- end
  
   #管理者
   namespace :admin do
