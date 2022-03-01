@@ -7,7 +7,7 @@ devise_for :users, controllers: {
 }
 # 管理者用
 # URL /admin/sign_in ...
-devise_for :admin, controllers: {
+devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
@@ -15,7 +15,7 @@ devise_for :admin, controllers: {
   scope module: :public do
     root to: 'mikans#index'
     resources :mikans, only: [:show]
-    get 'user/my_page' => 'users#show'
+    get 'user/:id/my_page' => 'users#show', as: 'user'
     resources :users, only: [:edit, :update]do
        get :favorites, on: :collection
     end
