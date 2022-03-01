@@ -20,12 +20,14 @@ class Public::RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params) 
     if @recipe.save
-       # @recipe.saveでrecipeとingredient、step同時に保存
+       # @recipe.saveでrecipeとingredient、step、mika同時に保存
       redirect_to recipe_path(current_user.id)
     else
       render :new
     end
   end
+  
+  private
   
   def recipe_params
     params.require(:recipe).permit(:title, :description, :image,

@@ -2,8 +2,8 @@
   <table>
     <tr>
       <td class="td-fixed-direction">
-        
-        <%= f.text_field :mikan_name ,placeholder: "どのみかんを?" %>
+        <% thing_options = Mikan.order(:id).map { |c| [c.mikan_name, c.id, data: { unit: c.unit, spoon:c.spoon }] } %>
+        <%= f.select(:recipe_id, thing_options, { prompt: "---"}, {class:"select", data:{select:0}, id:"thing-select" }) %>
       </td>
       <td class="td-fixed-step_image">
         <%= f.text_field :amount, placeholder: "2つ"  %>

@@ -1,2 +1,21 @@
-<h1>Admin::Mikans#index</h1>
-<p>Find me in app/views/admin/mikans/index.html.erb</p>
+<h1>みかん一覧</h1>
+<%= link_to "みかん投稿",new_admin_mikan_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>種類名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mikans.each do |mikan| %>
+    <tr>
+      <td></td>
+      <td><%= mikan.mikan_name %></td>
+      <td></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
