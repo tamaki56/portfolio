@@ -9,17 +9,32 @@ class Public::RecipesController < ApplicationController
 
   def edit
   end
+  
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      # タグの更新
+      @recipe.save_tags(params[:recipe][:tag])
+      # 成功したら投稿記事へリダイレクト
+      redirect_to recipe_path(@recipe.id)
+    else
+      # 失敗した場合は、editへ戻る
+      render :edit
+    end    
+  end
 
   def new
     @recipe = Recipe.new
-    @ingredient = @recipe.ingredients.build
-    @step = @recipe.steps.build
-    @mikan = @recipe.mikans.build
+    # @ingredient = @recipe.ingredients.build
+    # @step = @recipe.steps.build
+    # @mikan = @recipe.mikans.build
   end
   
   def create
     @recipe = Recipe.new(recipe_params) 
     if @recipe.save
+      # タグの保存
+      @recipe.save_tags(params[:recipe][:tag])
       flash[:success] = "投稿が完了しました！"
        # @recipe.saveでrecipeとingredient、step、mika同時に保存
       redirect_to recipe_path(current_user.id)
@@ -32,10 +47,10 @@ class Public::RecipesController < ApplicationController
   private
   
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :image,
-    ingredients_attributes:[:id, :recipe_id, :mikan_name, :content, :quantity, :amount, :_destroy],
-    steps_attributes:[:id, :recipe_id, :number, :step_image, :direction, :_destroy],
-    mikans_attributes:[:id, :recipe_id, :mikan_name, :amount, :mikan_image, :_destroy])
+    params.require(:recipe).permit(:title, :description, :amount, :image, :genre,
+    ingredients_attributes:[:id, :recipe_id, :content, :quantity, :_destroy],
+    steps_attributes:[:id, :recipe_id, :step_image, :direction, :_destroy],
+    recipe_mikans_attributes:[:id, :recipe_id, :mikan_id, :amount, :_destroy])
     .merge(user_id: current_user.id)
   end    
 end

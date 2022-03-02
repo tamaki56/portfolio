@@ -1,2 +1,21 @@
 <h1>Public::Recipes#show</h1>
 <p>Find me in app/views/public/recipes/show.html.erb</p>
+
+<h2><%= @recipe.title %></h2>
+<p><%= @recipe.user.nickname %></p>
+<div><%= simple_format(@recipe.description) %></div>
+
+<% @recipe.recipe_mikans.each do |rm| %>
+  <p><%= "#{rm.mikan.mikan_name} / #{rm.amount}" %></p>
+<% end %>
+
+<% @recipe.ingredients.each do |ing| %>
+  <p><%= "#{ing.content} / #{ing.quantity}" %></p>
+<% end %>
+
+<div class="steps">
+  <% @recipe.steps.each do |step| %>
+    <div class="step"></div>
+    <div><%= simple_format(step.direction) %></div>
+  <% end %>
+</div>

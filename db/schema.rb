@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_01_120305) do
+ActiveRecord::Schema.define(version: 2022_03_02_112634) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,10 +35,8 @@ ActiveRecord::Schema.define(version: 2022_03_01_120305) do
 
   create_table "ingredients", force: :cascade do |t|
     t.integer "recipe_id"
-    t.string "mikan_name", null: false
     t.string "content", null: false
     t.string "quantity", null: false
-    t.string "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
@@ -57,8 +55,16 @@ ActiveRecord::Schema.define(version: 2022_03_01_120305) do
     t.string "tip_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "amount"
+  end
+
+  create_table "recipe_mikans", force: :cascade do |t|
     t.integer "recipe_id"
+    t.integer "mikan_id"
+    t.integer "amount", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mikan_id"], name: "index_recipe_mikans_on_mikan_id"
+    t.index ["recipe_id"], name: "index_recipe_mikans_on_recipe_id"
   end
 
   create_table "recipe_tags", force: :cascade do |t|
@@ -75,14 +81,15 @@ ActiveRecord::Schema.define(version: 2022_03_01_120305) do
     t.string "title", null: false
     t.text "description", null: false
     t.string "image"
+    t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre", null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "steps", force: :cascade do |t|
     t.integer "recipe_id"
-    t.integer "number", null: false
     t.string "step_image"
     t.text "direction", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -113,6 +120,8 @@ ActiveRecord::Schema.define(version: 2022_03_01_120305) do
   add_foreign_key "favorites", "recipes"
   add_foreign_key "favorites", "users"
   add_foreign_key "ingredients", "recipes"
+  add_foreign_key "recipe_mikans", "mikans"
+  add_foreign_key "recipe_mikans", "recipes"
   add_foreign_key "recipe_tags", "recipes"
   add_foreign_key "recipe_tags", "tags"
   add_foreign_key "recipes", "users"

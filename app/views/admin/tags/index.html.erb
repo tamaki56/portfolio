@@ -1,12 +1,4 @@
-<h1>タグ一覧/投稿</h1>
-<%= form_with model: @tag,url: admin_tags_path,method: :post, local: true do |f| %>
-  <div class="form-group">
-    <label for="name">タグ名</label>
-    <%= f.text_field :name %>
-  </div>
-  <%= f.submit "作成" %>
-<% end %>
-
+<h1>タグ一覧</h1>
 <table>
   <thead>
     <tr>

@@ -1,6 +1,0 @@
-<h1>タグ編集</h1>
-<%= form_with model: @tag,url: admin_tag_path(@tag.id),method: :patch, local: true do |f| %>
-  <%= f.text_field :name %>
-  
-  <%= f.submit "更新" %>
-<% end %>

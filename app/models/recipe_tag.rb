@@ -1,4 +1,8 @@
 class RecipeTag < ApplicationRecord
   belongs_to :recipe
-  has_many :tags, dependent: :destroy
+  belongs_to :tag
+  
+  # 念のためのバリデーション
+  validates :recipe_id, presence: true
+  validates :tag_id, presence: true  
 end

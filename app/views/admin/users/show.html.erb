@@ -23,3 +23,21 @@
 </table>
 
 
+<h2><%= @user.name %>さんが投稿したレシピ</h2>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>レシピ名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+    <tr>
+      <td></td>
+      <td><%= recipe.title %></td>
+    <% end %>  
+    </tr>
+  </tbody>
+</table>
+

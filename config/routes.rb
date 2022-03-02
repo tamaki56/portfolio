@@ -27,7 +27,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   #管理者
   namespace :admin do
     resources :mikans
-    resources :tags, only: [:index,:edit,:create,:update, :destroy]
+    resources :tags, only: [:index, :destroy]
     resources :users, only: [:index,:show,:edit,:update, :destroy]
     resources :recipes, only: [:index, :show, :edit, :update, :destroy]
   end 
