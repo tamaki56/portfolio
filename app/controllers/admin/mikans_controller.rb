@@ -29,7 +29,6 @@ class Admin::MikansController < ApplicationController
   
   def destroy
     @mikan = Mikan.find(params[:id])  
-    @mikan.destroy  
     if @mikan.destroy
       redirect_to admin_mikans_path
     end    
