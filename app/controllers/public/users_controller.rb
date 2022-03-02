@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
   def show
     @user = current_user
+    @recipes = @user.recipes
   end
 
   def edit
@@ -12,8 +13,7 @@ class Public::UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    if @user.save
+    if @user.update(user_params)
       flash[:notice] = "変更されました"
       redirect_to my_page_path(current_user.id)
     else

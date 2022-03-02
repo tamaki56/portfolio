@@ -20,9 +20,11 @@ class Public::RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params) 
     if @recipe.save
+      flash[:success] = "投稿が完了しました！"
        # @recipe.saveでrecipeとingredient、step、mika同時に保存
       redirect_to recipe_path(current_user.id)
     else
+      flash.now[:alert] = "投稿が失敗しました。"
       render :new
     end
   end

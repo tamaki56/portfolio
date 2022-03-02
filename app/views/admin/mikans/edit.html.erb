@@ -1,1 +1,55 @@
 <h1>みかん編集画面</h1>
+
+<%= form_with model: @mikan,url: admin_mikans_path, local: true do |f| %>
+  <div class="form-group">
+    <label for="mikan_image">みかんの写真</label>
+    <%= f.file_field :mikan_image, accept: "image/*" %>
+  </div>
+  
+  <div class="form-group">
+    <label for="mikan_sub_image">みかんサブ写真</label>
+    <%= f.file_field :mikan_sub_image, accept: "image/*" %>
+  </div>
+  
+  <div class="form-group">
+    <label for="mikan_name">みかんの種類</label>
+    <%= f.text_field :mikan_name %>
+  </div>
+  
+  <div class="form-group">
+    <label for="introduction">みかんの説明</label>
+    <%= f.text_area :introduction %>
+  </div>
+  
+  <div class="form-group">
+    <label for="price">みかんの価格</label>
+    <%= f.text_field :price %>
+  </div>
+  
+  <div class="form-group">
+    <label for="sweetness">みかんの甘味</label>
+    <%= f.text_area :sweetness %>
+  </div>
+  
+  <div class="form-group">
+    <label for="season">みかんの時期</label>
+    <%= f.text_area :season %>
+  </div>
+  
+  <div class="form-group">
+    <label for="tip_title">豆知識タイトル</label>
+    <%= f.text_area :tip_title %>
+  </div>
+  
+  <div class="form-group">
+    <label for="tip">豆知識説明文</label>
+    <%= f.text_area :tip %>
+  </div>
+  
+  <div class="form-group">
+    <label for="tip_image">豆知識写真</label>
+    <%= f.file_field :mikan_image, accept: "image/*" %>
+  </div>
+  
+  <%= f.submit '変更' %>
+<% end %>

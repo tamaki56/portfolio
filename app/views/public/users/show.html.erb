@@ -17,3 +17,21 @@
   </tbody>
 </table>
 <%= link_to "編集する",edit_user_path(@user.id) %>
+
+<p>あなたのレシピ</p>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>レシピ名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+    <tr>
+      <td></td>
+      <td><%= recipe.title %></td>
+    <% end %>  
+    </tr>
+  </tbody>
+</table>
