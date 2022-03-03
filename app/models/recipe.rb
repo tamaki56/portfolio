@@ -9,6 +9,8 @@ class Recipe < ApplicationRecord
   # belongs_to :recipe_tag
   belongs_to :user
   has_many :recipe_tags, dependent: :destroy
+  has_many :tags, through: :recipe_tags
+   enum genre: { 'おかず': 0, 'デザート': 1, 'その他': 2 }
     # タグをスペース区切りで分割し配列にする
     #   連続した空白も対応するので、最後の“+”がポイント
     tag_list = tags.split(/[[:blank:]]+/)
@@ -30,7 +32,7 @@ class Recipe < ApplicationRecord
     
 
   
-  enum genre: { 'おかず': 0, 'デザート': 1, 'その他': 2 }
+ 
   
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
