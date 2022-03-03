@@ -1,7 +1,9 @@
 <h1>みんなのレシピ</h1>
-<%= link_to "レシピ投稿",  new_recipe_path %>
+<div>
+  <%= link_to "レシピ投稿",  new_recipe_path %>
+</div>
 <% @recipes.each do |recipe| %>
   <%= link_to recipe_path(recipe.id) do %>
-    <%= @recipe.title 
+    <%= recipe.title %>
   <% end %>
 <% end %>

@@ -8,6 +8,8 @@ class Public::RecipesController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
+    
   end
   
   def update
@@ -43,6 +45,11 @@ class Public::RecipesController < ApplicationController
       render :new
     end
   end
+  
+  def destroy
+    Recipe.find(params[:id]).destroy()
+    redirect_to recipe_path(current_user.id)
+  end  
   
   private
   
