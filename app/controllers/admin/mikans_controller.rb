@@ -23,10 +23,20 @@ class Admin::MikansController < ApplicationController
   
   def update
     @mikan = Mikan.find(params[:id])
-    @mikan.update(mikan_params)
-    redirect_to admin_mikan_path(@mikan.id)
+    if params[:mikan][:image_ids]
+      params[:mikan][:image_ids].each do |image_id|
+        image = @mikan.images.find(image_id)
+        image.purge
+      end
+    end
+    if @mikan.update_attributes(mikan_params)
+      flash[:success] = "編集しました"
+      redirect_to admin_mikan_path(@mikan.id)
+    else
+      render :edit
+    end
   end
-  
+
   def destroy
     @mikan = Mikan.find(params[:id])  
     if @mikan.destroy
@@ -38,6 +48,6 @@ class Admin::MikansController < ApplicationController
   private
   
   def mikan_params
-    params.require(:mikan).permit(:mikan_name, :mikan_image, :mikan_sub_image, :introduction, :price, :sweetness, :season, :tip_title, :tip, :tip_image)
+    params.require(:mikan).permit(:mikan_name, :introduction, :price, :sweetness, :season, :tip_title, :tip, :image, images: [])
   end  
 end

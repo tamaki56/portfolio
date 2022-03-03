@@ -12,9 +12,17 @@
   <tbody>
     <% @mikans.each do |mikan| %>
     <tr>
-      <td></td>
+      <td>
+        <% if mikan.images.attached? %>
+          <% mikan.images.each do |image| %>
+            <%= image_tag(image, width:100) %>
+          <% end %>  
+        <% else %>
+          <%= image_tag 'l_e_others_501', size: "200x200" %>
+        <% end %>
+      </td>
       <td><%= mikan.mikan_name %></td>
-      <td></td>
+      <td><%= link_to "編集",edit_admin_mikan_path(mikan.id) %></td>
     </tr>
     <% end %>
   </tbody>
