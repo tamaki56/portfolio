@@ -6,6 +6,7 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients, allow_destroy: true
   accepts_nested_attributes_for :steps, allow_destroy: true
   accepts_nested_attributes_for :recipe_mikans, allow_destroy: true
+  
   # belongs_to :recipe_tag
   belongs_to :user
   has_many :recipe_tags, dependent: :destroy

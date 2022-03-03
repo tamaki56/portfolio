@@ -2,6 +2,6 @@
 <%= link_to "レシピ投稿",  new_recipe_path %>
 <% @recipes.each do |recipe| %>
   <%= link_to recipe_path(recipe.id) do %>
-    
+    <%= @recipe.title 
   <% end %>
 <% end %>
