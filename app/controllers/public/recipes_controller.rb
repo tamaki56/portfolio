@@ -16,7 +16,7 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
       # タグの更新
-      @recipe.save_tags(params[:recipe][:tag])
+      @recipe.save_tags(params[:recipe][:tags][:tag])
       # 成功したら投稿記事へリダイレクト
       redirect_to recipe_path(@recipe.id)
     else
@@ -48,7 +48,7 @@ class Public::RecipesController < ApplicationController
   
   def destroy
     Recipe.find(params[:id]).destroy()
-    redirect_to recipe_path(current_user.id)
+    redirect_to recipes_path
   end  
   
   private
@@ -56,7 +56,7 @@ class Public::RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title, :description, :amount, :image, :genre,
     ingredients_attributes:[:id, :recipe_id, :content, :quantity, :_destroy],
-    steps_attributes:[:id, :recipe_id, :step_image, :direction, :_destroy],
+    steps_attributes:[:id, :recipe_id, :image, :direction, :_destroy],
     recipe_mikans_attributes:[:id, :recipe_id, :mikan_id, :amount, :_destroy])
     .merge(user_id: current_user.id)
   end    

@@ -6,8 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/*******.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -53,10 +54,10 @@
               <%= link_to 'トップ',root_path %>
             </li>
             <li class="nav-item">
-              <%= link_to '新規登録',new_user_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to '新規登録',new_user_registration_path %>
             </li>
             <li class="nav-item">
-              <%= link_to 'ログイン',new_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to 'ログイン',new_user_session_path %>
             </li>
           <% end %>
           </ul> 

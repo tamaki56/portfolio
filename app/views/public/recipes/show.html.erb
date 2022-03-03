@@ -1,6 +1,7 @@
 <h1>Public::Recipes#show</h1>
 <p>Find me in app/views/public/recipes/show.html.erb</p>
-
+<div><%= link_to "編集", edit_recipe_path(@recipe.id) %></div>
+<div><%= link_to '削除',recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に消しますか？" %></div>
 <h2><%= @recipe.title %></h2>
 <p><%= @recipe.user.nickname %></p>
 <div><%= simple_format(@recipe.description) %></div>

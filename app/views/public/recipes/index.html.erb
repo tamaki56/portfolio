@@ -3,7 +3,14 @@
   <%= link_to "レシピ投稿",  new_recipe_path %>
 </div>
 <% @recipes.each do |recipe| %>
+<div>
   <%= link_to recipe_path(recipe.id) do %>
-    <%= recipe.title %>
+    <% if recipe.image.attached? %>
+        <%= image_tag mikan.image, size: "200x200" %>
+    <% else %>
+      <%= image_tag 'l_e_others_501', size: "200x200" %>
+    <% end %>  
+      <%= recipe.title %>
   <% end %>
+</div>
 <% end %>
