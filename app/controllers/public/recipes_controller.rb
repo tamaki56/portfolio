@@ -36,7 +36,7 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params) 
     if @recipe.save
       # タグの保存
-      @recipe.save_tags(params[:recipe][:tag])
+      @recipe.save_tags(params[:recipe][:tags][:tag])
       flash[:success] = "投稿が完了しました！"
        # @recipe.saveでrecipeとingredient、step、mika同時に保存
       redirect_to recipe_path(current_user.id)

@@ -84,8 +84,8 @@
     <%= f.select :genre, Recipe.genres.keys, {prompt: "選択してください"}, class: "prefecture-select" %>
   </div>
   <div>
-    <%= form_with model: @recipe do |recipe| %>
-      <%= render 'tag_fields', recipe: recipe %>
+    <%= f.fields_for :tags do |form| %>
+      <%= render 'tag_fields', f: form %>
     <% end %>
   </div>
 
