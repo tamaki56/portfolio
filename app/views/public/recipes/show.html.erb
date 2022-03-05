@@ -19,6 +19,15 @@
   <% @recipe.steps.each do |step| %>
     <div class="step"></div>
     <div><%= simple_format(step.direction) %></div>
+    <div>
+      <% if step.images.length > 0 %>
+      <% step.images.each do |image| %>
+        <%= image_tag image, size: "200x200" %>
+      <% end %>  
+      <% else %>
+        <%= image_tag 'l_e_others_501', size: "200x200" %>
+      <% end %>
+    </div>
   <% end %>
 </div>
 

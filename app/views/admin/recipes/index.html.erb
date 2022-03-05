@@ -1,2 +1,13 @@
-<h1>Admin::Recipes#index</h1>
-<p>Find me in app/views/admin/recipes/index.html.erb</p>
+<h1>みんなのレシピ</h1>
+<% @recipes.each do |recipe| %>
+<div>
+  <%= link_to admin_recipe_path(recipe.id) do %>
+    <% if recipe.image.attached? %>
+        <%= image_tag mikan.image, size: "200x200" %>
+    <% else %>
+      <%= image_tag 'l_e_others_501', size: "200x200" %><br>
+    <% end %>  
+      <%= recipe.title %>
+  <% end %>
+</div>
+<% end %>

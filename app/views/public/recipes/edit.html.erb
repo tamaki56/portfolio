@@ -12,6 +12,9 @@
   <div class="form-group">
     <%= f.number_field :amount,placeholder: "人数", min: 1 %>
   </div>
+  
+  
+  
 
     <div class="forms-item">
       みかん
@@ -27,13 +30,14 @@
         }
       %>
     </div>
-      
-    <div id="mikan-association-insertion-point"></div>
     <!-- 2）動的に追加するフォーム(renderで飛ばしている先が追加される) -->
     <%= f.fields_for :recipe_mikans do |form| %>
       <%= render "recipe_mikan_fields", f: form %>
     <% end %>
     </div>
+    <div id="mikan-association-insertion-point"></div>
+    
+    
     
     <div class="forms-item">
       材料
@@ -49,13 +53,14 @@
         }
       %>
     </div>
-      
-    <div id="detail-association-insertion-point"></div>
-      <!-- 2）動的に追加するフォーム(renderで飛ばしている先が追加される) -->
       <%= f.fields_for :ingredients do |form| %>
         <%= render "ingredient_fields", f: form %>
       <% end %>
       </div>    
+    <div id="detail-association-insertion-point"></div>
+      <!-- 2）動的に追加するフォーム(renderで飛ばしている先が追加される) -->
+  
+  
   
   
     <div class="forms-item">
@@ -72,13 +77,12 @@
         }
       %>
     </div>
-  
-    <div id="step-association-insertion-point"></div>
-    <!-- 2）動的に追加するフォーム(renderで飛ばしている先が追加される) -->
     <%= f.fields_for :steps do |form| %>
       <%= render "step_fields", f: form %>
     <% end %>
   </div>  
+    <div id="step-association-insertion-point"></div>
+    <!-- 2）動的に追加するフォーム(renderで飛ばしている先が追加される) -->
   
   <div>
     <%= f.select :genre, Recipe.genres.keys, {prompt: "選択してください"}, class: "prefecture-select" %>
