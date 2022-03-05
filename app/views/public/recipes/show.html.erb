@@ -1,7 +1,8 @@
-<h1>Public::Recipes#show</h1>
-<p>Find me in app/views/public/recipes/show.html.erb</p>
+<% if @recipe.user == current_user %>
 <div><%= link_to "編集", edit_recipe_path(@recipe.id) %></div>
 <div><%= link_to '削除',recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に消しますか？" %></div>
+<% end %>
+
 <h2><%= @recipe.title %></h2>
 <p><%= @recipe.user.nickname %></p>
 <div><%= simple_format(@recipe.description) %></div>
@@ -20,3 +21,14 @@
     <div><%= simple_format(step.direction) %></div>
   <% end %>
 </div>
+
+<h3>Tags --></h3>
+<ul>
+  <%# 該当のPostからアソシエーションでタグを取得 %>
+  <% @recipe.tags.each do |tag| %>
+    <%# タグを展開 %>
+    <li>
+      <%= tag.name %>
+    </li>
+  <% end %>
+</ul>

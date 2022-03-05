@@ -9,7 +9,10 @@ class Public::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    
+    @user = @recipe.user
+    if @user != current_user
+      redirect_to user_path(current_user.id)
+    end     
   end
   
   def update

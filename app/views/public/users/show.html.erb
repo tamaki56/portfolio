@@ -19,19 +19,16 @@
 <%= link_to "編集する",edit_user_path(@user.id) %>
 
 <h2>あなたのレシピ</h2>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>レシピ名</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @recipes.each do |recipe| %>
-    <tr>
-      <td></td>
-      <td><%= recipe.title %></td>
+
+  <% @recipes.each do |recipe| %>
+  <div>
+    <%= link_to recipe_path(recipe.id) do %>
+      <% if recipe.image.attached? %>
+          <%= image_tag mikan.image, size: "200x200" %>
+      <% else %>
+        <%= image_tag 'l_e_others_501', size: "200x200" %><br>
+      <% end %>          
+      <%= recipe.title %>
     <% end %>  
-    </tr>
-  </tbody>
-</table>
+  </div>
+  <% end %>
