@@ -3,28 +3,29 @@
 <div><%= link_to '削除',recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に消しますか？" %></div>
 <% end %>
 
-<% if !Favorite.exists?(user_id: current_user.id, recipe_id: @recipe.id) %>
-  <%= link_to recipe_favorites_path(@recipe.id), method: :post, remote: true, class:"like-btn" do %>
-    <i class="fal fa-thumbs-up"></i>
-  <% end %>
-  <span class="star-count1"><%= @recipe.favorites.count %></span>
-<% else %>
-  <%= link_to recipe_favorites_path(recipe_id: @recipe.id, id: @recipe.favorites[0].id), method: :delete, remote: true, class:"like-btn" do %>
-    <i class="fas fa-thumbs-up"></i>
-  <% end %>
-  <span class="star-count2"><%= @recipe.favorites.count %></span>
-<% end %>
+
+
+<div class='star-btn' id="favorite_<%= @recipe.id %>">
+  <%= render "favorite_fields", recipe: @recipe %>
+</div>
 
 
 
 <h2><%= @recipe.title %></h2>
-<p><%= @recipe.user.nickname %></p>
+<p>
+  <%= link_to my_page_path(@recipe.user.id) do %>
+  <%= @recipe.user.nickname %>
+  <% end %>
+  </p>
 <div><%= simple_format(@recipe.description) %></div>
 
+<h2>使ったみかん</h2>
 <% @recipe.recipe_mikans.each do |rm| %>
   <p><%= "#{rm.mikan.mikan_name} / #{rm.amount}" %></p>
 <% end %>
 
+
+<h2>材料</h2>
 <% @recipe.ingredients.each do |ing| %>
   <p><%= "#{ing.content} / #{ing.quantity}" %></p>
 <% end %>
