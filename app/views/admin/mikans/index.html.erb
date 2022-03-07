@@ -24,7 +24,7 @@
         <% end %>
       </td>
       <td><%= mikan.mikan_name %></td>
-      <td><%= link_to "編集",edit_admin_mikan_path(mikan.id) %></td>
+      <td><%= link_to "編集",edit_admin_mikan_path(mikan.id) %>/<%= link_to '削除',admin_mikan_path(mikan.id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
     </tr>
     <% end %>
   </tbody>

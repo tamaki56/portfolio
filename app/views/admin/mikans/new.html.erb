@@ -2,7 +2,7 @@
 
 <%= form_with model: @mikan,url: admin_mikans_path, local: true do |f| %>
   <div class="form-group">
-    <label for="mikan_image">みかんの写真/サブ写真</label>
+    <label for="mikan_image">みかんの写真/サブ写真/豆知識写真</label>
     <%= f.file_field :images, multiple: true %>
   </div>
   
@@ -39,11 +39,6 @@
   <div class="form-group">
     <label for="tip">豆知識説明文</label>
     <%= f.text_area :tip %>
-  </div>
-  
-  <div class="form-group">
-    <label for="tip_image">豆知識写真</label>
-    <%= f.file_field :image, accept: "image/*" %>
   </div>
   
   <%= f.submit '新規投稿' %>

@@ -48,6 +48,6 @@ class Admin::MikansController < ApplicationController
   private
   
   def mikan_params
-    params.require(:mikan).permit(:mikan_name, :introduction, :price, :sweetness, :season, :tip_title, :tip, :tip_image, images: [])
+    params.require(:mikan).permit(:mikan_name, :introduction, :price, :sweetness, :season, :tip_title, :tip, images: [])
   end  
 end

@@ -10,7 +10,11 @@
 </div>
     
 <h2><%= @recipe.title %></h2>
-<p><%= @recipe.user.nickname %></p>
+<p>
+  <%= link_to admin_user_path(@recipe.user.id) do %>
+    <%= @recipe.user.nickname %>
+  <% end %>
+</p>
 <div><%= simple_format(@recipe.description) %></div>
 
 <% @recipe.recipe_mikans.each do |rm| %>

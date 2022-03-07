@@ -1,32 +1,49 @@
-
 <div>
-  <%= @mikan.mikan_name %>
-</div>
-
-<div>
-  <% if @mikan.images.length > 0 %>
-      <%= image_tag @mikan.images.first, size: "200x200" %>
+  <% if @mikan.images.length > 1 %>
+    <%= image_tag @mikan.images.second, size: "200x200" %>
   <% else %>
     <%= image_tag 'l_e_others_501', size: "200x200" %>
   <% end %>
 </div>
 
-<div><%= @mikan.introduction %></div>
+<div>
+  <%= @mikan.mikan_name %>
+</div>
 
-<div><%= @mikan.price %></div>
-
-<div><%= @mikan.sweetness %></div>
-
-<div><%= @mikan.season %></div>
-
-<div><%= @mikan.tip_title %></div>
-
-<div><%= @mikan.tip %></div>
 
 <div>
-  <% if @mikan.tip_image.attached? %>
-    <%= image_tag @mikan.tip_image, size: "200x200" %>
+  <label for="introduction">特徴</label>
+  <%= @mikan.introduction %>
+</div>
+
+<div>
+  <label for="price">価格</label>
+  <%= @mikan.price %>
+</div>
+
+<div>
+  <label for="sweetness">甘味</label>
+  <%= @mikan.sweetness %>
+</div>
+
+<div>
+  <label for="season">時期</label>
+  <%= @mikan.season %>
+</div>
+
+<div>
+  <label for="tip">豆知識</label>
+  <%= @mikan.tip_title %>
+  <div>
+    <%= @mikan.tip %>
+  </div>
+</div>
+
+
+<div>
+  <% if @mikan.images.length > 2 %>
+      <%= image_tag @mikan.images.third, size: "200x200" %>
   <% else %>
     <%= image_tag 'l_e_others_501', size: "200x200" %>
-  <% end %>  
+  <% end %>
 </div>
