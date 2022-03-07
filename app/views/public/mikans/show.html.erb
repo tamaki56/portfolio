@@ -24,8 +24,8 @@
 <div><%= @mikan.tip %></div>
 
 <div>
-  <% if @mikan.image.attached? %>
-    <%= image_tag @mikan.image, size: "200x200" %>
+  <% if @mikan.tip_image.attached? %>
+    <%= image_tag @mikan.tip_image, size: "200x200" %>
   <% else %>
     <%= image_tag 'l_e_others_501', size: "200x200" %>
   <% end %>  

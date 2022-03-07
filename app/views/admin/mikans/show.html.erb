@@ -26,6 +26,11 @@
 <div><%= @mikan.tip %></div>
 
 <div>
-
-
+  <% if @mikan.tip_image.attached? %>
+    <%= image_tag @mikan.tip_image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'l_e_others_501', size: "200x200" %>
+  <% end %>
 </div>
+
+<div><%= link_to '削除',admin_mikan_path(@mikan.id), method: :delete, "data-confirm" => "本当に消しますか？" %></div>
