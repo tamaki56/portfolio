@@ -11,7 +11,7 @@
     <% @tags.each do |tag| %>
       <td>
         <%# タグの名前と、関連付く記事数を表示 %>
-        <%= link_to "#{tag.name} ( Recipes: #{tag.recipes.count} )", admin_tags_path %>
+        <%= link_to "#{tag.name} ( Recipes: #{tag.recipes.count} )", admin_tag_path(tag.id) %>
       </td>
       <td><%= link_to"削除",admin_tag_path(tag.id),method: :delete, "data-confirm" => "本当に消しますか？" %></td>
     <% end %>

@@ -1,0 +1,17 @@
+<h2>Actions --></h2>
+<%= link_to '削除', admin_tag_path(@tag.id), method: :delete, data: {confirm: '関連づいた記事のタグが空になりますがタグを削除しますか？'} %>
+
+<h2>Tag --></h2>
+
+<%# タグ名 %>
+<h3><%= @tag.name %></h3>
+
+<%# タグに関連付く記事一覧 %>
+<ul>
+  <% @tag.recipes.each do |recipe| %>
+    <li>
+      <p>レシピタイトル</p>
+      <%= link_to recipe.title, admin_recipe_path(recipe.id) %>
+    </li>
+  <% end %>
+</ul>

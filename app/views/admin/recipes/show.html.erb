@@ -1,6 +1,14 @@
 <div><%= link_to "編集", edit_admin_recipe_path(@recipe.id) %></div>
 <div><%= link_to '削除',admin_recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に消しますか？" %></div>
 
+<div>
+  <% if @recipe.image.attached? %>
+    <%= image_tag @recipe.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'l_e_others_501', size: "200x200" %>
+  <% end %>
+</div>
+    
 <h2><%= @recipe.title %></h2>
 <p><%= @recipe.user.nickname %></p>
 <div><%= simple_format(@recipe.description) %></div>
@@ -20,10 +28,10 @@
     <div>
       <% if step.images.length > 0 %>
       <% step.images.each do |image| %>
-        <%= image_tag image, size: "200x200" %>
+        <%= image_tag image, size: "100x100" %>
       <% end %>  
       <% else %>
-        <%= image_tag 'l_e_others_501', size: "200x200" %>
+        <%= image_tag 'l_e_others_501', size: "100x100" %>
       <% end %>      
     </div>
   <% end %>
@@ -39,3 +47,6 @@
     </li>
   <% end %>
 </ul>
+
+<h3>ジャンル --></h3>
+<%= @recipe.genre %>
