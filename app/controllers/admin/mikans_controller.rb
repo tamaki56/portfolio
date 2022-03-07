@@ -29,7 +29,7 @@ class Admin::MikansController < ApplicationController
         image.purge
       end
     end
-    if @mikan.update_attributes(mikan_params)
+    if @mikan.update(mikan_params)
       flash[:success] = "編集しました"
       redirect_to admin_mikan_path(@mikan.id)
     else

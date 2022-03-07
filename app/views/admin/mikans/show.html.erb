@@ -1,2 +1,31 @@
-<h1>Admin::Mikans#show</h1>
-<p>Find me in app/views/admin/mikans/show.html.erb</p>
+
+<div>
+  <%= @mikan.mikan_name %>
+</div>
+
+<div>
+  <% if @mikan.images.attached? %>
+    <% @mikan.images.each do |image| %>
+      <%= image_tag(image, width:100) %>
+    <% end %>  
+  <% else %>
+    <%= image_tag 'l_e_others_501', size: "200x200" %>
+  <% end %>
+</div>
+
+<div><%= @mikan.introduction %></div>
+
+<div><%= @mikan.price %></div>
+
+<div><%= @mikan.sweetness %></div>
+
+<div><%= @mikan.season %></div>
+
+<div><%= @mikan.tip_title %></div>
+
+<div><%= @mikan.tip %></div>
+
+<div>
+
+
+</div>
