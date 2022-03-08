@@ -1,44 +1,54 @@
-
-<div>
-  <%= @mikan.mikan_name %>
-</div>
-
-<div>
-  <% if @mikan.images.attached? %>
-    <% @mikan.images.each do |image| %>
-      <%= image_tag(image, width:100) %>
-    <% end %>  
-  <% else %>
-    <%= image_tag 'l_e_others_501', size: "200x200" %>
-  <% end %>
-</div>
-
-<div>
-  <label for="introduction">特徴</label>
-  <%= @mikan.introduction %>
-</div>
-
-<div>
-  <label for="price">価格</label>
-  <%= @mikan.price %>
-</div>
-
-<div>
-  <label for="sweetness">甘味</label>
-  <%= @mikan.sweetness %>
-</div>
-
-<div>
-  <label for="season">時期</label>
-  <%= @mikan.season %>
-</div>
-
-<div>
-  <label for="tip">豆知識</label>
-  <%= @mikan.tip_title %>
-  <div>
-    <%= @mikan.tip %>
+<div class="container">
+  <div class="row-mx-auto">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <h2><%= @mikan.mikan_name %></h2>
+      <div>
+        <%= link_to edit_admin_mikan_path(@mikan.id) do %>
+          <i class="far fa-edit"></i>
+        <% end %>/
+        <%= link_to admin_mikan_path(@mikan.id), method: :delete, "data-confirm" => "本当に消しますか？" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      
+      <div>
+      <% if @mikan.images.attached? %>
+        <% @mikan.images.each do |image| %>
+          <%= image_tag(image, width:100) %>
+        <% end %>  
+      <% else %>
+        <%= image_tag 'l_e_others_501', size: "200x200" %>
+      <% end %>
+      </div>
+      
+      <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th>特徴</th>
+          <td><%= @mikan.introduction %></td>
+        </tr>
+        <tr>
+          <th>価格</th>
+          <td><%= @mikan.price %></td>
+        </tr>
+        <tr>
+          <th>甘味</th>
+          <td><%= @mikan.sweetness %></td>
+        </tr>
+        <tr>
+          <th>時期</th>
+          <td><%= @mikan.season %></td>
+        </tr>
+        <tr>
+          <th>豆知識/タイトル</th>
+          <td><%= @mikan.tip_title %></td>
+        </tr>
+        <tr>
+          <th>豆知識/本文</th>
+          <td><%= @mikan.tip %></td>
+        </tr>
+      </thead>
+      </table>
+    </div>
   </div>
 </div>
-
-<div><%= link_to "編集",edit_admin_mikan_path(@mikan.id) %>/<%= link_to '削除',admin_mikan_path(@mikan.id), method: :delete, "data-confirm" => "本当に消しますか？" %></div>
