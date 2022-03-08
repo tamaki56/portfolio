@@ -1,54 +1,71 @@
-<h1><%= @user.name %>さんのページ</h1>
-<table class="table table-hover table-bordered">
-  <thead>
-    <tr>
-      <th>名前</th>
-      <th>ニックネーム</th>
-      <th>メールアドレス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @user.name %></td>
-      <td><%= @user.nickname %></td>
-      <td><%= @user.email %></td>
-    </tr>
-  </tbody>
-</table>
-<%= link_to "編集する",edit_user_path(@user.id) %>
-
-<h2><%= @user.name %>さんのレシピ</h2>
-<% if @user == current_user %>
-<div><%= link_to "レシピ投稿",  new_recipe_path %></div>
-<% end %>
-<% @recipes.each do |recipe| %>
-<div>
-  <%= link_to recipe_path(recipe.id) do %>
-    <% if recipe.image.attached? %>
-        <%= image_tag recipe.image, size: "200x200" %>
-    <% else %>
-      <%= image_tag 'l_e_others_501', size: "200x200" %><br>
-    <% end %>          
-    <%= recipe.title %>
-  <% end %>  
-</div>
-<% end %>
-
-
-<h2>お気に入り一覧</h2>
-<% if @favorite_list.present? %>
-    <% @favorite_list.each do |favorite| %>
-      <%= link_to recipe_path(favorite.id) do %>
-      <div class='post-img-content'>
-        <% if favorite.image.attached? %>
-            <%= image_tag favorite.image, size: "200x200" %>
+<div class="container">
+  <div class="row-mx-auto">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+    <h2>
+      <%= @user.name %>さんのページ
+      <%= link_to edit_user_path(@user.id) do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+    </h2>
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>ニックネーム</th>
+          <th>メールアドレス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @user.name %></td>
+          <td><%= @user.nickname %></td>
+          <td><%= @user.email %></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+    <h2>
+      <%= @user.name %>さんのレシピ
+      <% if @user == current_user %>
+        <%= link_to new_recipe_path do %>
+          <i class="fas fa-plus-circle"></i>
+        <% end %>
+      <% end %>
+    </h2>
+    
+    <% @recipes.each do |recipe| %>
+    <div>
+      <%= link_to recipe_path(recipe.id) do %>
+        <% if recipe.image.attached? %>
+            <%= image_tag recipe.image, size: "200x200" %>
         <% else %>
           <%= image_tag 'l_e_others_501', size: "200x200" %><br>
-        <% end %>
-      </div>
-        <div class='relative-post-title'>
-          <%= favorite.title %>
-        </div>
-      <% end %>
+        <% end %>          
+        <%= recipe.title %>
+      <% end %>  
+    </div>
     <% end %>
-  <% end %>
+    
+    
+    <h2>お気に入り一覧</h2>
+    <% if @favorite_list.present? %>
+        <% @favorite_list.each do |favorite| %>
+          <%= link_to recipe_path(favorite.id) do %>
+          <div class='post-img-content'>
+            <% if favorite.image.attached? %>
+                <%= image_tag favorite.image, size: "200x200" %>
+            <% else %>
+              <%= image_tag 'l_e_others_501', size: "200x200" %><br>
+            <% end %>
+          </div>
+            <div class='relative-post-title'>
+              <%= favorite.title %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
