@@ -1,17 +1,29 @@
-<h2>Actions --></h2>
-<%= link_to '削除', admin_tag_path(@tag.id), method: :delete, data: {confirm: '関連づいた記事のタグが空になりますがタグを削除しますか？'} %>
+<div class="container">
+  <div class="row-mx-auto">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <%# タグ名 %>
+      <h2><%= @tag.name %>
+        <%= link_to admin_tag_path(@tag.id), method: :delete, data: {confirm: '関連づいた記事のタグが空になりますがタグを削除しますか？'} do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </h2>
+      <%# タグに関連付く記事一覧 %>
+      <p>関連付いたレシピ</p>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>レシピタイトル</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tag.recipes.each do |recipe| %>
+          <tr>
+            <td><%= link_to recipe.title, admin_recipe_path(recipe.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-<h2>Tag --></h2>
-
-<%# タグ名 %>
-<h3><%= @tag.name %></h3>
-
-<%# タグに関連付く記事一覧 %>
-<ul>
-  <% @tag.recipes.each do |recipe| %>
-    <li>
-      <p>レシピタイトル</p>
-      <%= link_to recipe.title, admin_recipe_path(recipe.id) %>
-    </li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+</div>

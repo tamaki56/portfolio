@@ -1,20 +1,30 @@
-<h1>タグ一覧</h1>
-<table>
-  <thead>
-    <tr>
-      <th>タグ名</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <% @tags.each do |tag| %>
-      <td>
-        <%# タグの名前と、関連付く記事数を表示 %>
-        <%= link_to "#{tag.name} ( Recipes: #{tag.recipes.count} )", admin_tag_path(tag.id) %>
-      </td>
-      <td><%= link_to"削除",admin_tag_path(tag.id),method: :delete, "data-confirm" => "本当に消しますか？" %></td>
-    <% end %>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <h2>タグ一覧</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>タグ名</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tags.each do |tag| %>
+          <tr>
+            <td>
+              <%# タグの名前と、関連付く記事数を表示 %>
+              <%= link_to "#{tag.name} ( Recipes: #{tag.recipes.count} )", admin_tag_path(tag.id) %>
+            </td>
+            <td>
+              <%= link_to admin_tag_path(tag.id),method: :delete, "data-confirm" => "本当に消しますか？" do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
