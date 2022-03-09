@@ -1,56 +1,69 @@
-<div><%= link_to "編集", edit_admin_recipe_path(@recipe.id) %></div>
-<div><%= link_to '削除',admin_recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に消しますか？" %></div>
-
-<div>
-  <% if @recipe.image.attached? %>
-    <%= image_tag @recipe.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'l_e_others_501', size: "200x200" %>
-  <% end %>
-</div>
+<div class="container">
+  <div class="row-mx-auto">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      
     
-<h2><%= @recipe.title %></h2>
-<p>
-  <%= link_to admin_user_path(@recipe.user.id) do %>
-    <%= @recipe.user.nickname %>
-  <% end %>
-</p>
-<div><%= simple_format(@recipe.description) %></div>
-
-<% @recipe.recipe_mikans.each do |rm| %>
-  <p><%= "#{rm.mikan.mikan_name} / #{rm.amount}" %></p>
-<% end %>
-
-<% @recipe.ingredients.each do |ing| %>
-  <p><%= "#{ing.content} / #{ing.quantity}" %></p>
-<% end %>
-
-<div class="steps">
-  <% @recipe.steps.each do |step| %>
-    <div class="step"></div>
-    <div><%= simple_format(step.direction) %></div>
     <div>
-      <% if step.images.length > 0 %>
-      <% step.images.each do |image| %>
-        <%= image_tag image, size: "100x100" %>
-      <% end %>  
+      <% if @recipe.image.attached? %>
+        <%= image_tag @recipe.image, size: "200x200" %>
       <% else %>
-        <%= image_tag 'l_e_others_501', size: "100x100" %>
-      <% end %>      
+        <%= image_tag 'l_e_others_501', size: "200x200" %>
+      <% end %>
     </div>
-  <% end %>
+    <div>
+      <%= link_to edit_admin_recipe_path(@recipe.id) do %>
+        <i class="far fa-edit"></i>/
+      <% end %>
+      <%= link_to admin_recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に消しますか？" do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
+    </div>
+        
+    <h2><%= @recipe.title %></h2>
+    <p>
+      <%= link_to admin_user_path(@recipe.user.id) do %>
+        <%= @recipe.user.nickname %>
+      <% end %>
+    </p>
+    <div><%= simple_format(@recipe.description) %></div>
+    
+    <% @recipe.recipe_mikans.each do |rm| %>
+      <p><%= "#{rm.mikan.mikan_name} / #{rm.amount}" %></p>
+    <% end %>
+    
+    <% @recipe.ingredients.each do |ing| %>
+      <p><%= "#{ing.content} / #{ing.quantity}" %></p>
+    <% end %>
+    
+    <div class="steps">
+      <% @recipe.steps.each do |step| %>
+        <div class="step"></div>
+        <div><%= simple_format(step.direction) %></div>
+        <div>
+          <% if step.images.length > 0 %>
+          <% step.images.each do |image| %>
+            <%= image_tag image, size: "100x100" %>
+          <% end %>  
+          <% else %>
+            <%= image_tag 'l_e_others_501', size: "100x100" %>
+          <% end %>      
+        </div>
+      <% end %>
+    </div>
+    
+    <h3>タグ</h3>
+    <ul>
+      <%# 該当のPostからアソシエーションでタグを取得 %>
+      <% @recipe.tags.each do |tag| %>
+        <%# タグを展開 %>
+        <li>
+          <%= tag.name %>
+        </li>
+      <% end %>
+    </ul>
+    
+    <h3>ジャンル</h3>
+    <%= @recipe.genre %>
+    </div>
+  </div>
 </div>
-
-<h3>Tags --></h3>
-<ul>
-  <%# 該当のPostからアソシエーションでタグを取得 %>
-  <% @recipe.tags.each do |tag| %>
-    <%# タグを展開 %>
-    <li>
-      <%= tag.name %>
-    </li>
-  <% end %>
-</ul>
-
-<h3>ジャンル --></h3>
-<%= @recipe.genre %>

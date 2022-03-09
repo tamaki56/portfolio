@@ -11,7 +11,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_tags, dependent: :destroy
   has_many :tags, through: :recipe_tags
-  has_many_attached :image
+  has_one_attached :image
    enum genre: { 'おかず': 0, 'デザート': 1, 'その他': 2 }
    
   def save_tags(tags)

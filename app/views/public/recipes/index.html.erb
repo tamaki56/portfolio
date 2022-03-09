@@ -1,16 +1,34 @@
-<h1>みんなのレシピ</h1>
-<div>
-  <%= link_to "レシピ投稿",  new_recipe_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+    <h2>
+      みんなのレシピ
+      <%= link_to new_recipe_path do %>
+        <i class="fas fa-plus-circle"></i>
+      <% end %>
+    </h2>
+    </div>  
+  </div>
+    
+    <div class="row">
+      <% @recipes.each do |recipe| %>
+      <div class="col-lg-3 col-sm-6">
+      <div class="card" style="width:250px;">
+        <img class="card-img-top"          
+          <% if recipe.image.attached? %>
+            <%= image_tag recipe.image, size: "200x200" %>
+          <% else %>
+            <%= image_tag 'l_e_others_501', size: "200x200" %>
+          <% end %> 
+
+        <div class="card-body">
+          <h4 class="card-title"><%= recipe.title %></h4>
+          <p class="card-text"><%= recipe.description %></p>
+          <%= link_to "見てみる",recipe_path(recipe.id) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+      
+  </div>
 </div>
-<% @recipes.each do |recipe| %>
-<div>
-  <%= link_to recipe_path(recipe.id) do %>
-    <% if recipe.image.attached? %>
-        <%= image_tag mikan.image, size: "200x200" %>
-    <% else %>
-      <%= image_tag 'l_e_others_501', size: "200x200" %><br>
-    <% end %>  
-      <%= recipe.title %>
-  <% end %>
-</div>
-<% end %>

@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row-mx-auto">
+  <div class="row">
     <div class="col-lg-8 col-md-10 col-sm-12">
     <h2>
       <%= @user.name %>さんのページ
@@ -23,7 +23,8 @@
         </tr>
       </tbody>
     </table>
-    
+    </div>
+  </div>
     
     <h2>
       <%= @user.name %>さんのレシピ
@@ -34,38 +35,48 @@
       <% end %>
     </h2>
     
+    <div class="row">
     <% @recipes.each do |recipe| %>
-    <div>
-      <%= link_to recipe_path(recipe.id) do %>
-        <% if recipe.image.attached? %>
+    <div class="col-lg-3 col-sm-6">
+      <div class="card" style="width:250px;">
+        <img class="card-img-top"          
+          <% if recipe.image.attached? %>
             <%= image_tag recipe.image, size: "200x200" %>
-        <% else %>
-          <%= image_tag 'l_e_others_501', size: "200x200" %><br>
-        <% end %>          
-        <%= recipe.title %>
-      <% end %>  
+          <% else %>
+            <%= image_tag 'l_e_others_501', size: "200x200" %>
+          <% end %> 
+
+        <div class="card-body">
+          <h4 class="card-title"><%= recipe.title %></h4>
+          <p class="card-text"><%= recipe.description %></p>
+          <%= link_to "見てみる",recipe_path(recipe.id) %>
+        </div>
+      </div>
     </div>
     <% end %>
     
-    
-    <h2>お気に入り一覧</h2>
-    <% if @favorite_list.present? %>
+    <div class="row">
+      <h2>お気に入り一覧</h2>
+      <div class="row">
+      <% if @favorite_list.present? %>
         <% @favorite_list.each do |favorite| %>
-          <%= link_to recipe_path(favorite.id) do %>
-          <div class='post-img-content'>
-            <% if favorite.image.attached? %>
-                <%= image_tag favorite.image, size: "200x200" %>
-            <% else %>
-              <%= image_tag 'l_e_others_501', size: "200x200" %><br>
-            <% end %>
+        <div class="col-lg-3 col-sm-6">
+          <div class="card" style="width:250px;">
+            <img class="card-img-top"          
+              <% if favorite.image.attached? %>
+                  <%= image_tag favorite.image, size: "200x200" %>
+              <% else %>
+                <%= image_tag 'l_e_others_501', size: "200x200" %>
+              <% end %>
+    
+            <div class="card-body">
+              <h4 class="card-title"><%= favorite.title %></h4>
+              <p class="card-text"><%= favorite.description %></p>
+              <%= link_to "見てみる",recipe_path(favorite.id) %>
           </div>
-            <div class='relative-post-title'>
-              <%= favorite.title %>
-            </div>
-          <% end %>
+        </div>
         <% end %>
       <% end %>
-      
+      </div>
     </div>
-  </div>
 </div>
