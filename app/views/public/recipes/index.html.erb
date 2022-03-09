@@ -23,6 +23,7 @@
 
         <div class="card-body">
           <h4 class="card-title"><%= recipe.title %></h4>
+          <p class="card-text">by.<%= recipe.user.nickname %></p>
           <p class="card-text"><%= recipe.description %></p>
           <%= link_to "見てみる",recipe_path(recipe.id) %>
         </div>
