@@ -13,9 +13,9 @@
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-light"style="background-color:	#F4A460">
         <div class="container">
-          <a class="navbar-brand" href="/"><%= image_tag('') %></a>
+          <a class="navbar-brand" href="/">mikan</a>
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,7 @@
                 <%= link_to 'トップ',root_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                <%= button_to  'ログアウト',destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+                <%= button_to "ログアウト",destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
               </li>
             <% elsif admin_signed_in? %>
               <li class="nav-item">

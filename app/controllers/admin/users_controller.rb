@@ -6,6 +6,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = User.all
+    @posts = @users.page(params[:page]).per(10) #ページネーション
   end
   
   def edit

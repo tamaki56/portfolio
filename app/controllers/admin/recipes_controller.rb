@@ -24,6 +24,8 @@ class Admin::RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    @posts = @recipes.page(params[:page]).per(20) #ページネーション
+    
   end
 
   def show
