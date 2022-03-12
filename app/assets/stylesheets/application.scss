@@ -15,18 +15,6 @@
 
  */
 
-.steps {
-  counter-reset: rank;
-}
- 
-.steps .step::before { /* ラベルと順位のスタイル */
-  counter-increment: rank;
-  content: "- STEP " counter(rank) " -";
-  padding: 3px;
-  font-size: 1.1rem;
-  color: #fff; /* 文字色 */
-  background: rgba(0,0,0,0.8); /* 背景色 */
-}
 
 .bg-img{
   background-image: image-url("bg.jpeg");
@@ -49,4 +37,21 @@
   padding: 50px 15px;
   background-image: image-url("bg_footer.jpeg");
   background-size:cover;
+}
+
+.steps {
+  counter-reset: rank;
+}
+ 
+.steps .step::before { /* ラベルと順位のスタイル */
+  counter-increment: rank;
+  content: "- STEP " counter(rank) " -";
+  padding: 3px;
+  font-size: 1.1rem;
+  color: #fff; /* 文字色 */
+  background: rgba(0,0,0,0.8); /* 背景色 */
+}
+
+.user-label{
+
 }
