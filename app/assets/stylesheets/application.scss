@@ -10,8 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
+
  */
 
 .steps {
@@ -25,4 +26,27 @@
   font-size: 1.1rem;
   color: #fff; /* 文字色 */
   background: rgba(0,0,0,0.8); /* 背景色 */
+}
+
+.bg-img{
+  background-image: image-url("bg.jpeg");
+  background-size:cover;
+}
+
+.main{
+  margin: 10px;
+}
+
+.main .contents{
+  margin-right: 35px;
+  margin-left: 35px;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  background-color: #fff;
+}
+
+.footer .outer{
+  padding: 50px 15px;
+  background-image: image-url("bg_footer.jpeg");
+  background-size:cover;
 }
