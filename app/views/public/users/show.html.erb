@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-8 col-md-10 col-sm-12">
       <div class="user-label">
-        <img src="bg_orange-types.png">
+        <img src="<%= asset_path('bg_orange-types.png') %>">
         <h3><%= @user.name %>さんのページ</h3>
         <%= link_to edit_user_path(@user.id) do %>
           <i class="far fa-edit"></i>

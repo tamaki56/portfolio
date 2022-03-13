@@ -12,16 +12,16 @@
   </head>
 
   <body class="bg-img">
-    <header class="shadow-sm">
+    <header class="">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <a class="navbar-brand" href="/">mikan</a>
+        
+          <a class="navbar-brand" href="/"></a>
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav flex-wrap">
             <% if user_signed_in? %>
               <li class="nav-item">
                 <%= link_to  'マイページ',my_page_path(current_user), class: 'nav-link text-dark' %>
@@ -33,7 +33,10 @@
                 <%= link_to 'トップ',root_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                <%= button_to "ログアウト",destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+                <%#= button_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark nav-btn' %>
+                <%= button_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark nav-btn' do %>
+                <span class="vertical-text">ログアウト</span>
+                <% end %>
               </li>
             <% elsif admin_signed_in? %>
               <li class="nav-item">
@@ -67,7 +70,7 @@
             <% end %>
             </ul> 
           </div>
-        </div>
+        
       </nav>
     </header>    
     

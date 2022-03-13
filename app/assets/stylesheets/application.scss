@@ -14,6 +14,40 @@
  *= require_tree .
 
  */
+ .navbar-nav{
+  position: fixed;
+  top: 20vh;
+	right:0;
+	z-index:1;
+  font-size:0; /* 親要素でフォントサイズを０にする */
+ }
+ .flex-wrap {
+   flex-wrap: wrap;
+ }
+ 
+ ul.flex-wrap {
+   width: 80px; 
+ }
+ 
+ .nav-btn {
+   border: none;
+   background-color: inherit;
+ }
+ 
+ .vertical-text{
+   writing-mode: vertical-rl;
+ }
+
+ .nav-item{
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  font-size:1rem; /*  フォントサイズ0になっているので指定する */
+  /* 以下、装飾 */
+	padding:20px 24px;
+  color:#9F886E;
+	background-color: rgba(255,255,255,0.7);
+ }
 
 
 .bg-img{
