@@ -76,11 +76,14 @@
     
     <main class="main">
       <div class="contents">
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "#{key}") %>
-        <% end %>
-        
-        <%= yield %>
+        <div class="main-head">
+          <%= image_tag 'bg_top-left02_pc.png', class: 'left-image' %>
+          <%= image_tag 'bg_top-right02_pc.png', class: 'right-image' %>
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "#{key}") %>
+          <% end %>
+          <%= yield %>
+        </div>
       </div>
     </main>
     <footer class="footer">
