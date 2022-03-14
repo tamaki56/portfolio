@@ -1,8 +1,8 @@
-<div>
+<div class="mikan-img">
   <% if @mikan.images.length > 1 %>
-    <%= image_tag @mikan.images.second, size: "200x200" %>
+    <%= image_tag @mikan.images.second,class: "mikan-img-2" %>
   <% else %>
-    <%= image_tag 'l_e_others_501', size: "200x200" %>
+    <%= image_tag 'l_e_others_501',class: "mikan-img-no-2" %>
   <% end %>
 </div>
 
@@ -40,10 +40,10 @@
 </div>
 
 
-<div>
+<div class="tip-img">
   <% if @mikan.images.length > 2 %>
-      <%= image_tag @mikan.images.third, size: "200x200" %>
+      <%= image_tag @mikan.images.third,class: "mikan-img-3" %>
   <% else %>
-    <%= image_tag 'l_e_others_501', size: "200x200" %>
+    <%= image_tag 'l_e_others_501',class:  "mikan-img-no-3" %>
   <% end %>
 </div>

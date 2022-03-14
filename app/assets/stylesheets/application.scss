@@ -18,7 +18,7 @@
 //  nav
  .navbar-nav{
   position: fixed;
-  top: 20vh;
+  top: 10vh;
 	right:0;
 	z-index:1;
   font-size:0; /* 親要素でフォントサイズを０にする */
@@ -83,7 +83,24 @@
 }
 
 
-// recipe
+// recipe_show
+
+.recipe-img{
+    text-align : center;
+}
+
+.recipe-img-1{
+    margin-top: 20px;
+    width: 80%;
+    height: auto;
+}
+
+.recipe-img-no-1{
+    margin-top: 20px;
+    width: 80%;
+    height: auto;
+}
+
 .steps {
   counter-reset: rank;
 }
@@ -109,4 +126,31 @@
 
 .user-table td{
     padding: 10px;
+}
+
+// mikan_show
+.mikan-img{
+    text-align : center;
+}
+
+.mikan-img-2{
+    margin-top: 20px;
+    width: 50%;
+    height: auto;
+}
+
+.mikan-img-no-2{
+    margin-top: 20px;
+    width: 50%;
+    height: auto;
+}
+
+.mikan-img-3{
+    width: 20%;
+    height: auto;
+}
+
+.mikan-img-no-3{
+    width: 20%;
+    height: auto;    
 }

@@ -2,11 +2,13 @@
   <div class="row-mx-auto">
     <div class="col-lg-8 col-md-10 col-sm-12">
       <div>
-        <% if @recipe.image.attached? %>
-          <%= image_tag @recipe.image, size: "200x200" %>
-        <% else %>
-          <%= image_tag 'l_e_others_501', size: "200x200" %>
-        <% end %>
+        <div class="recipe-img">
+          <% if @recipe.image.attached? %>
+            <%= image_tag @recipe.image,class: "recipe-img-1" %>
+          <% else %>
+            <%= image_tag 'l_e_others_501',class: "recipe-img-no-1"  %>
+          <% end %>
+        </div>
       
         <% if @recipe.user == current_user %>
         <div>
