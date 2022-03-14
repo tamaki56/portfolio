@@ -73,14 +73,23 @@
     position: relative;
 }
 
-.right-image{
-    float: right;
-}
 .footer .outer{
   padding: 50px 15px;
   background-image: image-url("bg_footer.jpeg");
   background-size:cover;
 }
+
+// top
+
+.head-img{
+    margin: 0 auto;
+}
+
+.right-img{
+    float: right;
+}
+
+
 
 
 // recipe_show
@@ -135,7 +144,7 @@
 
 .mikan-img-2{
     margin-top: 20px;
-    width: 50%;
+    width: 1200px;
     height: auto;
 }
 
