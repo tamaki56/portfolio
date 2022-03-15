@@ -33,9 +33,8 @@
                 <%= link_to 'トップ',root_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                <%#= button_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark nav-btn' %>
                 <%= button_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark nav-btn' do %>
-                <span class="vertical-text">ログアウト</span>
+                  <span class="vertical-text">ログアウト</span>
                 <% end %>
               </li>
             <% elsif admin_signed_in? %>
@@ -52,7 +51,9 @@
                 <%= link_to 'レシピタグ一覧',admin_tags_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                <%= button_to 'ログアウト',destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+                <%= button_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                  <span class="vertical-text">ログアウト</span>
+                <% end %>
               </li>
             <% else %>
               <li class="nav-item">

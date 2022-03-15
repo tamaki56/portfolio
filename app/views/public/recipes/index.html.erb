@@ -1,18 +1,22 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 col-sm-12">
-    <h2>
-      みんなのレシピ
-      <%= link_to new_recipe_path do %>
-        <i class="fas fa-plus-circle"></i>
-      <% end %>
-    </h2>
+      
+      <div class="recipe-label">
+        <h3>
+          みんなのレシピ
+          <%= link_to new_recipe_path do %>
+            <i class="fas fa-plus-circle"></i>
+          <% end %>
+        </h3>
+      </div>
+      
     </div>  
   </div>
     
-    <div class="row">
+  <div class="row">
       <% @posts.each do |recipe| %>
-      <div class="col-lg-3 col-sm-6">
+    <div class="col-lg-3 col-sm-6">
       <div class="card" style="width:250px;">
         <img class="card-img-top"          
           <% if recipe.image.attached? %>
