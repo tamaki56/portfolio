@@ -80,7 +80,7 @@
 .main .contents{
   margin-right: 50px;
   margin-left: 50px;
-  padding-top: 40px;
+  padding-top: 10px;
   padding-bottom: 80px;
   background-color: #fff;
 }
@@ -96,27 +96,55 @@
 }
 
 // top mikan_index
-
 .head-img{
-    margin: 0 auto;
+    width: 400px;
+    height: 400px;
 }
 
-.right-img{
-    float: right;
+.mikan-image {
+    width: 300px;
+    height: 300px;
 }
 
-.mikan-head .head-img{
-    text-align: center;
+.mikan-head {
+    display: flex;
 }
 
 .mikan-contents{
-    margin-top: 90px;
     display: flex;
     flex-wrap: wrap;
+    padding: 1.5em 7em;
+    margin: 8em;
+    border: double 5px 	#2E8B57;
+    position: relative;
+}
+
+.mikan-contents .mikan-contents-title{
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: #2E8B57;
+    font-weight: bold;    
 }
 
 .mikan-content{
     position: relative;
+}
+
+.mikan-content + .mikan-content:not(:nth-of-type(4n + 1)):before {
+    content: "";
+    height: 200px;
+    width: 2px;
+    background: #0e6613;
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    left: -1px;
 }
 
 .mikan-content p{
@@ -130,6 +158,92 @@
     top: 26px;
     left: 0;
 }
+
+// mikan_show
+.mikan-name{
+    display: flex;
+    justify-content: center;
+    color: #016411;
+    font-size: 30px;
+}
+
+.box26 {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px 	#2E8B57;
+    border-radius: 8px;
+}
+
+.box26 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: 	#2E8B57;
+    font-weight: bold;
+}
+
+.box26 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.mikan-show{
+    display: flex;
+}
+
+.balloon5 {
+  width: 100%;
+  margin: 1.5em 0;
+  overflow: hidden;
+}
+
+.balloon5 .faceicon {
+  float: left;
+  margin-right: 90px;
+  width: 80px;
+}
+
+.balloon5 .faceicon img{
+  width: 300%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.balloon5 .chatting {
+  width: 100%;
+}
+
+.says {
+  display: inline-block;
+  position: relative; 
+  margin: 5px 0 0 105px;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: #FFAD90;
+  margin-top: 50px;
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px; 
+  left: -24px;
+  border: 12px solid transparent;
+  border-right: 12px solid #FFAD90;
+}
+
+.says p {
+  margin: 0;
+  padding: 0;
+}
+
 // recipe_index
 .recipe-label h3 {
   position: absolute;

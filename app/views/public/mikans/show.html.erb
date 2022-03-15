@@ -1,3 +1,7 @@
+<div class="mikan-name">
+  <%= @mikan.mikan_name %>
+</div>
+
 <div class="mikan-img">
   <% if @mikan.images.length > 1 %>
     <%= image_tag @mikan.images.second,class: "mikan-img-2" %>
@@ -6,39 +10,42 @@
   <% end %>
 </div>
 
-<div>
-  <%= @mikan.mikan_name %>
+<div class="box26">
+    <span class="box-title">特徴</span>
+    <p><%= @mikan.introduction %></p>
 </div>
 
-
-<div>
-  <label for="introduction">特徴</label>
-  <%= @mikan.introduction %>
+<div class="box26">
+    <span class="box-title">価格</span>
+    <p><%= @mikan.price %></p>
 </div>
 
-<div>
-  <label for="price">価格</label>
-  <%= @mikan.price %>
-</div>
+<div class="box26">
+    <span class="box-title">甘味</span>
+    <p><%= @mikan.sweetness %></p>
+</div>   
 
-<div>
-  <label for="sweetness">甘味</label>
-  <%= @mikan.sweetness %>
-</div>
+<div class="box26">
+    <span class="box-title">時期</span>
+    <p><%= @mikan.season %></p>
+</div> 
 
-<div>
-  <label for="season">時期</label>
-  <%= @mikan.season %>
-</div>
+<div class="mikan-show">
+  <div class="balloon5">
+    <div class="faceicon">
+      <%= image_tag 'New file (1).png',class: "gm-img" %>
+    </div>
 
-<div>
-  <label for="tip">豆知識</label>
-  <%= @mikan.tip_title %>
-  <div>
-    <%= @mikan.tip %>
+     <div class="chatting">
+      <div class="says">
+        <label for="tip">豆知識</label>
+        <p><%= @mikan.tip_title %></p>
+        <p><%= @mikan.tip %></p>
+      </div>
+     </div> 
+     
   </div>
 </div>
-
 
 <div class="tip-img">
   <% if @mikan.images.length > 2 %>

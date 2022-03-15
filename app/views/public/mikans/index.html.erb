@@ -1,9 +1,11 @@
 <div class="mikan-head">
-  <%= image_tag 'bg_top-left02_pc.png', class: 'left-img' %>
-  <%= image_tag 'おばあちゃんの みかん.png', class: 'head-img' %>
-  <%= image_tag 'bg_top-right02_pc.png', class: 'right-img' %>
+  <%= image_tag 'bg_top-left02_pc.png', class: 'mikan-image' %>
+  <div style="margin: -40px auto;" ><%= image_tag 'おばあちゃんの.png', class: 'head-img' %></div>
+  <%= image_tag 'bg_top-right02_pc.png', class: 'mikan-image' %>
 </div>
+
 <div class="mikan-contents">
+  <span class="mikan-contents-title">みかんの種類</span>
   <% @mikans.each do |mikan| %>
     <div class="mikan-content">
       <p><%= mikan.mikan_name %></p>
