@@ -96,6 +96,10 @@
 }
 
 // top mikan_index
+.mikan-head {
+    display: flex;
+}
+
 .head-img{
     width: 400px;
     height: 400px;
@@ -106,8 +110,14 @@
     height: 300px;
 }
 
-.mikan-head {
-    display: flex;
+.mikan-about{
+    display: block;
+    text-align: center;
+}
+
+.mikan-about span{
+    font-size: 26px;
+    color: #2E8B57;
 }
 
 .mikan-contents{
