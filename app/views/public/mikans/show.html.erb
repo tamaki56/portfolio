@@ -1,34 +1,42 @@
+<div class="mikan-head">
+  <%= image_tag 'bg_top-left02_pc.png', class: 'mikan-image' %>
+  <div style="margin: -40px auto;" ><%= image_tag 'おばあちゃんの.png', class: 'head-img' %></div>
+  <%= image_tag 'bg_top-right02_pc.png', class: 'mikan-image' %>
+</div>
+
 <div class="mikan-name">
   <%= @mikan.mikan_name %>
 </div>
 
 <div class="mikan-img">
-  <% if @mikan.images.length > 1 %>
-    <%= image_tag @mikan.images.second,class: "mikan-img-2" %>
+  <% if @mikan.images.length > 0 %>
+    <%= image_tag @mikan.images.first,class: "mikan-img-2" %>
   <% else %>
     <%= image_tag 'l_e_others_501',class: "mikan-img-no-2" %>
   <% end %>
 </div>
 
-<div class="box26">
-    <span class="box-title">特徴</span>
-    <p><%= @mikan.introduction %></p>
+<div class="mikan-box">
+  <div class="box26">
+      <span class="box-title">特徴</span>
+      <p><%= @mikan.introduction %></p>
+  </div>
+  
+  <div class="box26">
+      <span class="box-title">価格</span>
+      <p><%= @mikan.price %></p>
+  </div>
+  
+  <div class="box26">
+      <span class="box-title">甘味</span>
+      <p><%= @mikan.sweetness %></p>
+  </div>   
+  
+  <div class="box26">
+      <span class="box-title">時期</span>
+      <p><%= @mikan.season %></p>
+  </div> 
 </div>
-
-<div class="box26">
-    <span class="box-title">価格</span>
-    <p><%= @mikan.price %></p>
-</div>
-
-<div class="box26">
-    <span class="box-title">甘味</span>
-    <p><%= @mikan.sweetness %></p>
-</div>   
-
-<div class="box26">
-    <span class="box-title">時期</span>
-    <p><%= @mikan.season %></p>
-</div> 
 
 <div class="mikan-show">
   <div class="balloon5">
@@ -48,8 +56,8 @@
 </div>
 
 <div class="tip-img">
-  <% if @mikan.images.length > 2 %>
-      <%= image_tag @mikan.images.third,class: "mikan-img-3" %>
+  <% if @mikan.images.length > 1 %>
+      <%= image_tag @mikan.images.second,class: "mikan-img-3" %>
   <% else %>
     <%= image_tag 'l_e_others_501',class:  "mikan-img-no-3" %>
   <% end %>
