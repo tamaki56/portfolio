@@ -3,32 +3,35 @@
   <div style="margin: -40px auto;" ><%= image_tag 'おばあちゃんの.png', class: 'head-img' %></div>
   <%= image_tag 'bg_top-right02_pc.png', class: 'mikan-image' %>
 </div>
+
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-md-10 col-sm-12">
-      <div class="user-label">
-        <h3><%= @user.name %>さんのページ</h3>
+    <div class="col-12">
+      <div class="user-box-1">
+        <div class="user-label">
+          <h3><%= @user.name %>さんのページ</h3>
+        </div>
+        <%= link_to edit_user_path(@user.id) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+        
+        <table class="user-table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>名前</th>
+              <th>ニックネーム</th>
+              <th>メールアドレス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @user.name %></td>
+              <td><%= @user.nickname %></td>
+              <td><%= @user.email %></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <%= link_to edit_user_path(@user.id) do %>
-        <i class="far fa-edit"></i>
-      <% end %>
-      
-    <table class="user-table table-hover table-bordered">
-      <thead>
-        <tr>
-          <th>名前</th>
-          <th>ニックネーム</th>
-          <th>メールアドレス</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= @user.name %></td>
-          <td><%= @user.nickname %></td>
-          <td><%= @user.email %></td>
-        </tr>
-      </tbody>
-    </table>
     </div>
   </div>
     

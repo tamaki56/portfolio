@@ -185,14 +185,21 @@
     margin-top: 40px;
 }
 
-.mikan-box{
+.mikan-box-1{
+    padding: 40px;
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.mikan-box-2{
+    justify-content: space-evenly;
     display: flex;
 }
 
 .box26 {
     position: relative;
-    margin: 2em 0;
-    padding: 0.5em 1em;
+    margin: 3em 0;
+    padding: 1.5em 11em;
     border: solid 3px 	#2E8B57;
     border-radius: 8px;
 }
@@ -246,9 +253,10 @@
 }
 
 .balloon5 {
-  width: 100%;
-  margin: 1.5em 0;
-  overflow: hidden;
+    text-align: center;
+    width: 100%;
+    margin: 1.5em 0;
+    overflow: hidden;
 }
 
 .balloon5 .faceicon {
@@ -258,7 +266,7 @@
 }
 
 .balloon5 .faceicon img{
-  width: 300%;
+  width: 400%;
   height: auto;
   border-radius: 50%;
 }
@@ -343,6 +351,10 @@
 }
 
 // user_show
+.user-box-1{
+    display: block;
+}
+
 .user-label{
     margin-top: 20px;
 }
