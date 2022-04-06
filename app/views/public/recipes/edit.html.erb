@@ -1,6 +1,14 @@
 <div class="container">
   <div class="row-max-auto">
     <div class="col-lg-10 col-md-10 col-sm-12">
+      <% if @recipe.errors.any? %>
+        <%= @recipe.errors.count %>errors prohibited this book from being saved:
+        <ul>
+          <% @recipe.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <h2>レシピ編集</h2>
     <%= form_with(model: @recipe, class:"recipes-post-main", local: true) do |f| %>
       <div class="form-group">

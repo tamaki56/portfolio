@@ -50,4 +50,9 @@ class Recipe < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+  
+  
+  validates :title, presence: true #空でないように設定
+  validates :description, presence: true, length: { maximum: 200 } #空でない、かつ最大200文字までに設定
+  validates :amount, presence: true #空でないように設定
 end
