@@ -84,6 +84,7 @@
   padding-bottom: 80px;
   background-color: #fff;
 }
+
 .main-head{
     margin-top: 15px;
     position: relative;
@@ -323,6 +324,10 @@
   .card{
     margin-top: 40px;
   }
+  
+  .card-title{
+      color: #FF6928;
+  }
 
 // recipe_show
 .recipe-img{
@@ -339,6 +344,25 @@
     margin-top: 20px;
     width: 80%;
     height: auto;
+}
+
+.recipe-contents{
+    display: block;
+    text-align: center;
+}
+
+.recipe-text{
+    color: 	#2E8B57;
+}
+
+.recipe-main-text{
+    font-weight: bold;
+    color: #FF6928;
+}
+
+.text-border{
+    text-decoration: underline;
+    text-decoration-color: #BBBBBB;
 }
 
 .steps {
@@ -384,3 +408,28 @@
 }
 
 
+@media screen and (max-width:768px){
+  .mikan-image {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .mikan-content + .mikan-content:not(:nth-of-type(1n + 1)):before {
+    content: "";
+    height: 200px;
+    width: 2px;
+    background: #0e6613;
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    left: -1px;
+  }
+  
+  .navbar {
+    padding: 0.3rem 55rem;
+  }
+  
+  .footer {
+    width: 100%;
+  }
+}
