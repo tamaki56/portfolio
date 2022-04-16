@@ -55,4 +55,8 @@ class Recipe < ApplicationRecord
   validates :title, presence: true #空でないように設定
   validates :description, presence: true, length: { maximum: 200 } #空でない、かつ最大200文字までに設定
   validates :amount, presence: true #空でないように設定
+  validates :genre, presence: true #空でないように設定
+  validates :steps, presence: true
+  validates :ingredients, presence: true
+  validates :recipe_mikans, presence: true
 end

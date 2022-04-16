@@ -1,12 +1,18 @@
-# ja:
-#   activerecord:
-#     attributes:
-#       ingredient:
-#         content: 材料
-# 	      quantity: 分量
-#       recipe_mikan:
-# 	      amount: みかんの分量 
-# 	   # recipe:
-#     #     title: タイトル
-# 	   #   description: レシピの紹介文
-# 	   #   amount: 量
+ja:
+  activerecord:
+    attributes:
+      recipe:
+        title: タイトル
+        description: レシピの紹介文
+        amount: 人数 
+        genre: ジャンル
+        ingredients: 材料
+        steps: ステップ
+        recipe_mikans: みかん
+      ingredients:
+        content: 材料
+        quantity: 分量
+      recipe_mikans:
+        amount: みかんの個数 
+      steps:
+        direction: レシピの説明文(ステップ)

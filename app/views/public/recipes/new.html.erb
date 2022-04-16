@@ -3,7 +3,7 @@
     <div class="col-lg-10 col-md-10 col-sm-12">
       
       <% if @recipe.errors.any? %>
-        <%= @recipe.errors.count %>errors prohibited this book from being saved:
+        <%= @recipe.errors.count %>個のエラーが発生しました。
         <ul>
           <% @recipe.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -26,22 +26,22 @@
         <%= f.number_field :amount,placeholder: "人数", min: 1 %>
       </div>
     
-        <div class="forms-item">
-          みかん
-        </div>
+      <div class="forms-item">
+        みかん
+      </div>
       
-        <div class="add-botton-box">
-          <%= link_to_add_association "みかん追加ボタン", f, :recipe_mikans,
+      <div class="add-botton-box">
+        <%= link_to_add_association "みかん追加ボタン", f, :recipe_mikans,
           class: 'add_fields',
           id: 'add-btn',
           data: {
             association_insertion_node: '#mikan-association-insertion-point',
             association_insertion_method: 'before'
             }
-          %>
-        </div>
+        %>
+      </div>
           
-        <div id="mikan-association-insertion-point"></div>
+      <div id="mikan-association-insertion-point"></div>
         <!-- 2）動的に追加するフォーム(renderで飛ばしている先が追加される) -->
         <%= f.fields_for :recipe_mikans do |form| %>
           <%= render "recipe_mikan_fields", f: form %>

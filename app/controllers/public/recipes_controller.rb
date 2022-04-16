@@ -31,9 +31,9 @@ class Public::RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    # @ingredient = @recipe.ingredients.build
-    # @step = @recipe.steps.build
-    # @mikan = @recipe.mikans.build
+    @ingredient = @recipe.ingredients.build
+    @step = @recipe.steps.build
+    @mikan = @recipe.recipe_mikans.build
   end
   
   def create
