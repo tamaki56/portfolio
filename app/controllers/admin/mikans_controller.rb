@@ -5,8 +5,13 @@ class Admin::MikansController < ApplicationController
   
   def create
     @mikan = Mikan.new(mikan_params)
-    @mikan.save
-    redirect_to admin_mikans_path    
+    if @mikan.save
+      flash[:success] = "投稿が完了しました！"
+      redirect_to admin_mikan_path(@mikan.id) 
+    else
+      flash.now[:alert] = "投稿が失敗しました。"
+      render :new
+    end
   end
   
   def show

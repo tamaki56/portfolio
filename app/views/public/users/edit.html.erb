@@ -4,7 +4,7 @@
       <h2><%= @user.name %>さんの編集画面</h2>
 
       <% if @user.errors.any? %>
-        <%= @user.errors.count %>errors prohibited this book from being saved:
+        <%= @user.errors.count %>個のエラーが発生しました。
         <ul>
           <% @user.errors.full_messages.each do |message| %>
             <li><%= message %></li>

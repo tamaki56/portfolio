@@ -1,6 +1,16 @@
 <div class="container">
   <div class="row-max-auto">
     <div class="col-lg-10 col-md-10 col-sm-12">
+      
+      <% if @recipe.errors.any? %>
+        <%= @recipe.errors.count %>個のエラーが発生しました。
+        <ul>
+          <% @recipe.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      
     <h2>レシピ編集</h2>
     <%= form_with(model: @recipe,url: admin_recipe_path(@recipe.id), class:"recipes-post-main", local: true) do |f| %>
       <div class="form-group">

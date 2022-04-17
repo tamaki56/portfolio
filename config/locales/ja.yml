@@ -16,3 +16,13 @@ ja:
         amount: みかんの個数 
       steps:
         direction: レシピの説明文(ステップ)
+      user:
+        name: 名前
+        nickname: ニックネーム
+        email: メールアドレス
+      mikan:
+        mikan_name: みかんの種類
+        introduction: みかんの説明
+        price: みかんの価格
+        sweetness: みかんの甘味
+        season: みかんの時期
