@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_23_052229) do
+ActiveRecord::Schema.define(version: 2022_03_03_120317) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2022_04_23_052229) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.bigint "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2022_04_23_052229) do
   end
 
   create_table "recipe_mikans", force: :cascade do |t|
-    t.integer "recipe_id"
+    t.bigint "recipe_id"
     t.bigint "mikan_id"
     t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2022_04_23_052229) do
   end
 
   create_table "recipe_tags", force: :cascade do |t|
-    t.integer "recipe_id"
+    t.bigint "recipe_id"
     t.bigint "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -102,14 +102,13 @@ ActiveRecord::Schema.define(version: 2022_04_23_052229) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.string "title", null: false
     t.text "description", null: false
     t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "genre", null: false
-    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "steps", force: :cascade do |t|
