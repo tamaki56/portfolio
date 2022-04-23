@@ -12,17 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2022_03_03_120317) do
 
-  create_table "active_storage_attachments", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8mb4", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 2022_03_03_120317) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+  create_table "active_storage_variant_records", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "admins", force: :cascade do |t|
+  create_table "admins", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -52,15 +52,16 @@ ActiveRecord::Schema.define(version: 2022_03_03_120317) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "recipe_id"
+  create_table "favorites", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_favorites_on_recipe_id"
+    t.index ["user_id"], name: "fk_rails_d15744e438"
   end
 
-  create_table "ingredients", force: :cascade do |t|
+  create_table "ingredients", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "recipe_id"
     t.string "content", null: false
     t.string "quantity", null: false
@@ -69,7 +70,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_120317) do
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
-  create_table "mikans", force: :cascade do |t|
+  create_table "mikans", charset: "utf8mb4", force: :cascade do |t|
     t.string "mikan_name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
@@ -81,7 +82,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_120317) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "recipe_mikans", force: :cascade do |t|
+  create_table "recipe_mikans", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "recipe_id"
     t.bigint "mikan_id"
     t.integer "amount", null: false
@@ -91,7 +92,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_120317) do
     t.index ["recipe_id"], name: "index_recipe_mikans_on_recipe_id"
   end
 
-  create_table "recipe_tags", force: :cascade do |t|
+  create_table "recipe_tags", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "recipe_id"
     t.bigint "tag_id"
     t.datetime "created_at", precision: 6, null: false
@@ -100,17 +101,18 @@ ActiveRecord::Schema.define(version: 2022_03_03_120317) do
     t.index ["tag_id"], name: "index_recipe_tags_on_tag_id"
   end
 
-  create_table "recipes", force: :cascade do |t|
-    t.integer "user_id"
+  create_table "recipes", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "title", null: false
     t.text "description", null: false
     t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "genre", null: false
+    t.index ["user_id"], name: "fk_rails_9606fce865"
   end
 
-  create_table "steps", force: :cascade do |t|
+  create_table "steps", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "recipe_id"
     t.text "direction", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -118,13 +120,13 @@ ActiveRecord::Schema.define(version: 2022_03_03_120317) do
     t.index ["recipe_id"], name: "index_steps_on_recipe_id"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
