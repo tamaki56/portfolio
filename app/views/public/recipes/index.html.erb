@@ -1,29 +1,31 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 col-sm-12">
-      
+
       <div class="recipe-label">
         <h3>
           みんなのレシピ
-          <%= link_to new_recipe_path do %>
-            <i class="fas fa-plus-circle"></i>
+          <% if user_signed_in? %>
+            <%= link_to new_recipe_path do %>
+              <i class="fas fa-plus-circle"></i>
+            <% end %>
           <% end %>
         </h3>
       </div>
-      
-    </div>  
+
+    </div>
   </div>
-    
+
   <div class="row">
       <% @posts.each do |recipe| %>
     <div class="col-lg-3 col-sm-6">
       <div class="card" style="width:250px;">
-        <img class="card-img-top"          
+        <img class="card-img-top"
           <% if recipe.image.attached? %>
             <%= image_tag recipe.image, size: "200x200" %>
           <% else %>
             <%= image_tag 'l_e_others_501', size: "200x200" %>
-          <% end %> 
+          <% end %>
 
         <div class="card-body">
           <h4 class="card-title"><%= recipe.title %></h4>

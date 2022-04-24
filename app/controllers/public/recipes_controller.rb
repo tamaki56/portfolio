@@ -1,9 +1,11 @@
 class Public::RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @recipes = Recipe.all
     @posts = @recipes.page(params[:page]).per(20) #ページネーション
   end
-  
+
   def show
     @recipe = Recipe.find(params[:id])
   end
@@ -13,9 +15,9 @@ class Public::RecipesController < ApplicationController
     @user = @recipe.user
     if @user != current_user
       redirect_to user_path(current_user.id)
-    end     
+    end
   end
-  
+
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
@@ -26,7 +28,7 @@ class Public::RecipesController < ApplicationController
     else
       # 失敗した場合は、editへ戻る
       render :edit
-    end    
+    end
   end
 
   def new
@@ -35,9 +37,9 @@ class Public::RecipesController < ApplicationController
     @step = @recipe.steps.build
     @mikan = @recipe.recipe_mikans.build
   end
-  
+
   def create
-    @recipe = Recipe.new(recipe_params) 
+    @recipe = Recipe.new(recipe_params)
     if @recipe.save
       # タグの保存
       @recipe.save_tags(params[:recipe][:tags][:tag])
@@ -49,19 +51,19 @@ class Public::RecipesController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
     Recipe.find(params[:id]).destroy()
     redirect_to recipes_path
-  end  
-  
+  end
+
   private
-  
+
   def recipe_params
     params.require(:recipe).permit(:title, :description, :amount, :image, :genre, :tags,
     ingredients_attributes:[:id, :recipe_id, :content, :quantity, :_destroy],
     steps_attributes:[:id, :recipe_id, :images, :direction, :_destroy],
     recipe_mikans_attributes:[:id, :recipe_id, :mikan_id, :amount, :_destroy])
     .merge(user_id: current_user.id)
-  end    
+  end
 end
