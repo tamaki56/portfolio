@@ -409,9 +409,23 @@
 
 
 @media screen and (max-width:768px){
+  .bg-img{
+  background-image: image-url("bg.jpeg");
+  background-size:cover;
+  }
+  
+  .navbar {
+    padding: -0.7rem 55rem;
+  }
+  
   .mikan-image {
     width: 250px;
     height: 250px;
+  }
+  
+  .mikan-image {
+    width: 122px;
+    height: 190px;
   }
   
   .mikan-content + .mikan-content:not(:nth-of-type(1n + 1)):before {
