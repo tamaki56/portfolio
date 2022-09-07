@@ -42,5 +42,3 @@ https://drive.google.com/file/d/1AFEmRar7S8gAp9p_kZc24U4cWqqbG7Qw/view?usp=shari
 
 ## 使用素材
 - https://www.ac-illust.com/ イラストAC
-- 
-www
